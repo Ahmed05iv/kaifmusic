@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaif Music</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #87CEEB;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      opacity: 1;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: width 1s ease, transform 1s ease;
+    }
+
+    a.button {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #0088cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #006faa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes moveUp {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        transform: translateY(-70px) scale(0.88); /* Увеличен подъём до 70px */
+      }
+    }
+
+    .moved-up {
+      animation: moveUp 2s ease forwards;
+    }
+
+    @keyframes fadeInContent {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .content {
+      opacity: 0;
+      animation: fadeInContent 1.5s ease-in-out 2s forwards;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 20px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="logoContainer">
+    <div class="title" id="leftTitle">Мой</div>
+    <img src="img\0973e12d25aed78d8716642fe9b28e1a.jpg" alt="Логотип канала" />
+    <div class="title" id="rightTitle">Канал</div>
+  </div>
+
+  <a class="button" href="https://t.me/bombeomusic" target="_blank">Перейти в Telegram</a>
+
+  <div class="content">
+    <p>Здесь будет какая-то информация или описание канала.</p>
+    <p>Дополнительная информация о контенте и активностях на канале.</p>
+  </div>
+
+  <script>
+    const left = document.getElementById('leftTitle');
+    const right = document.getElementById('rightTitle');
+    const logoContainer = document.getElementById('logoContainer');
+    const button = document.querySelector('a.button');
+
+    setTimeout(() => {
+      left.style.opacity = '0';
+      left.style.transform = 'translateY(-10px)';
+      setTimeout(() => {
+        left.textContent = '𝕂𝕒𝕚𝕗';
+        left.style.opacity = '1';
+        left.style.transform = 'translateY(0)';
+      }, 500);
+    }, 2000);
+
+    setTimeout(() => {
+      right.style.opacity = '0';
+      right.style.transform = 'translateY(-10px)';
+      setTimeout(() => {
+        right.textContent = '𝕞𝕦𝕤𝕚𝕤';
+        right.style.opacity = '1';
+        right.style.transform = 'translateY(0)';
+      }, 500);
+    }, 2850);
+
+    // Анимация уменьшения и подъема логотипа с текстами
+    setTimeout(() => {
+      logoContainer.classList.add('moved-up');
+      button.classList.add('moved-up');
+    }, 4000); // После 4 секунд
+
+  </script>
+
+</body>
+</html>
